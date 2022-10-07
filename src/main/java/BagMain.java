@@ -1,8 +1,8 @@
 /* This file contains a few exercises and TODOs for you to fill.
- * Make sure you do the TODOs in Bag.java, HandBag.java and CrossbodyBag.java
+ * Make sure you do the TODOs in va
  * as the tasks in this file depends on the completion on those!
  *
- * You may find the readings in chapter 3. Relationships between Classes
+ * You may find the readings in chBag.java, HandBag.java and CrossbodyBag.jaapter 3. Relationships between Classes
  * helpful while working through this exercise.
  */
 class BagMain {
@@ -15,8 +15,22 @@ class BagMain {
      * on new Bag types (and HandBag subclasses)!
      */
     public static void enhanceBags(Bag[] bags, boolean double_enhance_handbags) {
-        // TODO: Implement this.
+        if (double_enhance_handbags) {
+            for (int i = 0; i < bags.length; i++) {
+                if (bags[i] instanceof HandBag) {
+                    ((HandBag) bags[i]).enhance();
+                    ((HandBag) bags[i]).enhance();
+                } else {
+                    bags[i].enhance();
+                }
+            }
+        } else {
+            for (int i = 0; i < bags.length; i++) {
+                bags[i].enhance();
+            }
+        }
     }
+
 
     /**
      * TODO: Implement this method
@@ -28,6 +42,12 @@ class BagMain {
      * @return The total number of straps of CrossbodyBags.
      */
     public static int countCrossbodyStraps(Bag[] bags) {
-        // TODO: Implement this.
+        int strapsCount = 0;
+        for (int i = 0; i < bags.length; i ++){
+            if (bags[i] instanceof CrossbodyBag){
+                strapsCount += ((CrossbodyBag) bags[i]).numberOfStraps;
+            }
+        }
+        return strapsCount;
     }
 }

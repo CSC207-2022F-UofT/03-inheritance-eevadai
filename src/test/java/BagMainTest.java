@@ -17,10 +17,10 @@ public class BagMainTest {
 
     @Before
     public void setUp() throws Exception {
-        bags = new Bag[] {new HandBag("Blue", 2),
-                          new CrossbodyBag("Red", 3, 2),
-                          new HandBag("Yellow", 4),
-                          new CrossbodyBag("Orange", 5, 4)};
+        bags = new Bag[]{new HandBag("Blue", 2),
+                new CrossbodyBag("Red", 3, 2),
+                new HandBag("Yellow", 4),
+                new CrossbodyBag("Orange", 5, 4)};
     }
 
     @Test(timeout = 50)
@@ -31,6 +31,7 @@ public class BagMainTest {
         assertEquals(6, bags[2].getCapacity());
         assertEquals(7, bags[3].getCapacity());
     }
+
     @Test(timeout = 50)
     public void TestEnhanceBagsFalse() {
         BagMain.enhanceBags(bags, false);
@@ -44,5 +45,4 @@ public class BagMainTest {
     public void TestCountCrossbodyStraps() {
         assertEquals(6, BagMain.countCrossbodyStraps(bags));
     }
-
 }
